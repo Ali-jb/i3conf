@@ -20,13 +20,14 @@ exec nmcli device wifi connect Jb password 25604397
 exec skype
 exec --no-startup-id dunst
 
-exec --no-startup-id i3-msg 'workspace 1; exec --no-startup-id operamod'
-exec --no-startup-id i3-msg 'workspace 2; exec --no-startup-id nekoray; exec --no-startup-id discord'
+#exec --no-startup-id i3-msg 'workspace 1; exec --no-startup-id opera'
+#exec --no-startup-id i3-msg 'workspace 2; exec --no-startup-id nekoray; exec --no-startup-id discord'
 
-#exec operamod
-#exec discord
-#exec nekoray
-#exec pavucontrol
+exec --no-startup-id i3-msg "workspace 1; append_layout ~/.config/i3/workspace-1.json"
+exec --no-startup-id i3-msg "workspace 2; append_layout ~/.config/i3/workspace-2.json"
+exec --no-startup-id i3-msg "workspace 3; append_layout ~/.config/i3/workspace-3.json"
+exec --no-startup-id ~/.config/i3/startup.sh
+
 exec --no-startup-id setxkbmap -layout us,ir -option 'grp:win_space_toggle'
 exec --no-startup-id volumeicon
 exec --no-startup-id autorandr --change
@@ -68,7 +69,8 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-
+#take screenshot
+bindsym $mod+p exec spectacle 
 # kill focused window
 bindsym $mod+Shift+q kill
 
